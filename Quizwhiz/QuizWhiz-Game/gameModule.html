@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body{
+            background: #007bff;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .grid-container{
+            margin: 0px;
+            border-top: 2px solid white;
+            /* border: 1px solid black; */
+            border-top: 1px solid black;
+        }
+
+        .grid-item{
+            border: 1px solid black;
+            /* text-align: center; */
+            padding: 30px;
+            margin: 20px;
+            height: 150px;
+            width: 250px;
+            font-size: 25px;
+            background: white;
+            color: #007bff;
+            
+
+        }
+
+        .grid-item:hover{
+            background:  #007bff;
+            color: white;
+            border: none;
+        }
+
+        span{
+            font-size:30px;
+            color:#007bff;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span>Select the puzzle</span>
+        <div class="grid-container">
+            <div ><button class="grid-item"><p>General Knowledge</p></button></div>
+            <div ><button class="grid-item"><p>Riddles</p></button></div>
+        </div>
+    </div>
+    <script>
+       const button = document.querySelector(".grid-item")
+       button.addEventListener("click",() => {
+        location.href = "game.html"
+        console.log(1)
+       })
+    </script>
+</body>
+</html>
