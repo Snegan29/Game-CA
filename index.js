@@ -1,9 +1,5 @@
 
 
-
-
-
-
 const popupButton = document.getElementById("popup-button");
 const popupContainer = document.getElementById("popup-container");
 const closePopup = document.getElementById("close-popup");
@@ -30,7 +26,7 @@ bgmusic.loop = true
 window.localStorage.setItem("name",document.querySelector(".name").value)
 window.localStorage.setItem("nickname",document.querySelector(".nickname").value)
 
-console.log(localStorage.getItem)
+// console.log(localStorage.getItem)
  
 
 function showpopup(){

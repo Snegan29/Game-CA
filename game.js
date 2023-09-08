@@ -142,7 +142,7 @@ function startQuiz(){
 function showQuestion(){
    shuffleArray(questions)
     resetState();
-    startTimer();
+    startTimer()
     let currentQuestion = questions[currentIndex];
     let questionNo = currentIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
@@ -199,6 +199,7 @@ function selectAnswer(e){
 
 function showScore() {
     resetState(); 
+
     // questionElement.innerHTML = `Congrats. You have scored ${score} out of ${questions.length}.`;
 
     if(score <5){
