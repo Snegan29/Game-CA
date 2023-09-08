@@ -182,17 +182,17 @@ function selectAnswer(e){
 
     if(isCorrect){
         selectBtn.classList.add("correct");
-        score++
+        score++;
     }else{
-        selectBtn.classList.add("incorrect")
+        selectBtn.classList.add("incorrect");
     }
     Array.from(answerButtons.children).forEach(button => {
         if(button.dataset.correct === "true"){
-            button.classList.add("correct")
+            button.classList.add("correct");
         }
-        button.disabled = true
+        button.disabled = true;
     })
-    nextButton.style.display = "block"
+    nextButton.style.display = "block";
 }
 
 // This function is to show the score or gameover page.

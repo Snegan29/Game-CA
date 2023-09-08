@@ -22,17 +22,16 @@ const showFormButton = document.getElementById("continue-btn");
 const myForm = document.getElementById("myForm");
 
 
-//  let bgmusic = new Audio("./assets/riddles.bgm.mp3")
-// bgmusic.play()
-// // bgmusic.loop = true
+let bgmusic = new Audio("./assets/riddles.bgm.mp3")
+bgmusic.play()
+bgmusic.loop = true
 
 
 window.localStorage.setItem("name",document.querySelector(".name").value)
 window.localStorage.setItem("nickname",document.querySelector(".nickname").value)
 
 console.log(localStorage.getItem)
-
-// const redirected = dociment.getElementById("submit")  
+ 
 
 function showpopup(){
     myForm.style.display = "block";

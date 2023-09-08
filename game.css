@@ -1,7 +1,7 @@
 
 
 * {
-    margin: 0;
+    margin: 0px;
     padding: 0;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
@@ -36,7 +36,6 @@
   }
   
   #popbtn {
-    /* background-color: ; */
     color: black;
     padding: 10px;
     border: none;
@@ -58,12 +57,10 @@
   
   .text {
     border: 1px solid black;
-    /* color: ; */
   }
 
   .sometips {
     padding: 10px;
-    /* text-align: start; */
   }
   
   #main-div{
@@ -108,7 +105,6 @@
       border-radius: 6px;
       transition: all 0.5s;
       cursor: pointer;
-      /* background: white; */
   }
   
   button:hover {
@@ -149,7 +145,6 @@
   
   .incorrect {
       background: lightsalmon;
-      /* color: black; */
   }
 
-  @media 
+
