@@ -1,8 +1,4 @@
 
-let bgmusic = new Audio("./assets/riddles.mp3")
-bgmusic.play()
-bgmusic.loop = true
-
 
 const popupButton = document.getElementById("popup-button");
 const popupContainer = document.getElementById("popup-container");
@@ -20,6 +16,14 @@ closePopup.addEventListener("click", () => {
 
 const showFormButton = document.getElementById("continue-btn");
 const myForm = document.getElementById("myForm");
+
+
+ let ticking = new Audio("./assets/riddles.bgm.mp3")
+ticking.play()
+// ticking.loop = true
+
+
+
 // const redirected = dociment.getElementById("submit")  
 
 function showpopup(){
@@ -35,3 +39,4 @@ document.getElementById('myForm').addEventListener('submit', function (e) {
     const url = 'destination.html?userInput=' + encodeURIComponent(inputData);
     window.location.href = "game.html";
 });
+

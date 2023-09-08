@@ -58,6 +58,12 @@
   
   .text {
     border: 1px solid black;
+    /* color: ; */
+  }
+
+  .sometips {
+    padding: 10px;
+    text-align: start;
   }
   
   #main-div{

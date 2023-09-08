@@ -11,20 +11,20 @@ function getIntoMainPart() {
 
 const questions = [
     {
-        question: "Which is the largest ocean in the world?",
+        question: "What comes once in a minute, twice in a moment, but never in a thousand years?",
         answers :[
-            {text: "Atlantic Ocean", correct: false},
-            {text: "Pacific Ocean", correct: true},
-            {text: "Indian Ocean", correct: false},
-            {text: "Arctic Ocean", correct: false},
+            {text: "The letter 'M'", correct: true},
+            {text: "A shooting star", correct: false},
+            {text: "A birthday cake", correct: false},
+            {text: " A second chance", correct: false},
         ]
     },
     {
-        question: "What is the national animal of India?",
+        question: " What has keys but can't open locks?",
         answers :[
             {text: "Lion", correct: false},
             {text: "Peacock", correct: false},
-            {text: "Tiger", correct: true},
+            {text: "", correct: true},
             {text: "Elephant", correct: false},
         ]
     },
@@ -117,9 +117,6 @@ const time = document.getElementById("timer");
 let currentIndex = 0;
 let score = 0;
 
-let ticking = new Audio("./assets/ticking-clock.mp3")
-ticking.play()
-ticking.loop = true
 
 function startQuiz(){
     currentIndex = 0;
@@ -129,28 +126,11 @@ function startQuiz(){
     showQuestion();
 }
 
-function getRandomQuestions(count) {
-    const randomQuestions = [];
-    const totalQuestions = questions.length;
-
-    while (randomQuestions.length < count) {
-        const randomIndex = Math.floor(Math.random() * totalQuestions);
-        const randomQuestion = questions[randomIndex];
-
-        if (!randomQuestions.includes(randomQuestion)) {
-            randomQuestions.push(randomQuestion);
-        }
-    }
-
-    return randomQuestions;
-}
-
-// Example: Get 10 random questions
-const selectedQuestions = getRandomQuestions(5);
 
 // Function to show the questions
 
 function showQuestion(){
+   
     resetState();
     startTimer();
     let currentQuestion = questions[currentIndex];
@@ -208,7 +188,15 @@ function selectAnswer(e){
 
 function showScore() {
     resetState(); 
-    questionElement.innerHTML = `Congrats. You have scored ${score} out of ${questions.length}.`;
+    // questionElement.innerHTML = `Congrats. You have scored ${score} out of ${questions.length}.`;
+
+    if(score <5){
+        questionElement.innerHTML = `You can "Try hard". You have scored ${score} out of ${questions.length}.`;
+    }else if(score>=5 && score<8){
+        questionElement.innerHTML = `You are better but "You can be the best". You have scored ${score} out of ${questions.length}.`;
+    }else if(score>=8){
+        questionElement.innerHTML = `GOD, You have done it. You have scored ${score} out of ${questions.length}.`;
+    }
 
     // Create a "Go to Home" button
     const homeButton = document.createElement("button");
