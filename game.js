@@ -215,7 +215,7 @@ function showScore() {
     homeButton.style.width="150px"
     homeButton.classList.add("btn");
     homeButton.addEventListener("click", () => {
-        window.location.href = "Frontpage.html"; 
+        window.location.href = "index.html"; 
     });
 
     // Create a "Start Again" button
