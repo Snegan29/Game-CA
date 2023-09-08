@@ -1,11 +1,15 @@
 
+let bgmusic = new Audio("./assets/riddles.mp3")
+bgmusic.play()
+bgmusic.loop = true
+
+
 const popupButton = document.getElementById("popup-button");
 const popupContainer = document.getElementById("popup-container");
 const closePopup = document.getElementById("close-popup");
 
 
 popupButton.addEventListener("click", () => {
-    console.log(1)
     popupContainer.style.display = "block";
 });
 
@@ -29,5 +33,5 @@ document.getElementById('myForm').addEventListener('submit', function (e) {
 
     const inputData = document.getElementById('inputData').value;
     const url = 'destination.html?userInput=' + encodeURIComponent(inputData);
-    window.location.href = "gameModule.html";
+    window.location.href = "game.html";
 });

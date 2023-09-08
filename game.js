@@ -1,4 +1,13 @@
- 
+
+// document
+function getIntoMainPart() {
+    // Hide the popup
+    document.querySelector(".popup").classList.add("hide");
+  
+    // Show the main part
+    document.getElementById("main-div").classList.remove("hide");
+  }
+
 
 const questions = [
     {
@@ -93,10 +102,10 @@ const questions = [
     }
 ]
 
-const generalKnowledge = document.getElementById("GK")
-generalKnowledge.addEventListener("click", () => {
-    console.log(1)
-})
+// const generalKnowledge = document.getElementById("GK")
+// generalKnowledge.addEventListener("click", () => {
+//     console.log(1)
+// })
 
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
@@ -108,20 +117,42 @@ const time = document.getElementById("timer");
 let currentIndex = 0;
 let score = 0;
 
+let ticking = new Audio("./assets/ticking-clock.mp3")
+ticking.play()
+ticking.loop = true
 
 function startQuiz(){
     currentIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
-    showQuestion();
     startTimer();
+    showQuestion();
 }
+
+function getRandomQuestions(count) {
+    const randomQuestions = [];
+    const totalQuestions = questions.length;
+
+    while (randomQuestions.length < count) {
+        const randomIndex = Math.floor(Math.random() * totalQuestions);
+        const randomQuestion = questions[randomIndex];
+
+        if (!randomQuestions.includes(randomQuestion)) {
+            randomQuestions.push(randomQuestion);
+        }
+    }
+
+    return randomQuestions;
+}
+
+// Example: Get 10 random questions
+const selectedQuestions = getRandomQuestions(5);
 
 // Function to show the questions
 
 function showQuestion(){
     resetState();
-    startTimer()
+    startTimer();
     let currentQuestion = questions[currentIndex];
     let questionNo = currentIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
@@ -148,8 +179,8 @@ function resetState(){
     nextButton.style.display = "none";
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild)
-        clearInterval(startTimer)
     }
+    // clearInterval(intervalId)
 }
 
 // this function is to find if the clicked answer is correct or incorrect.
@@ -193,7 +224,7 @@ function showScore() {
     nextButton.style.display="block"
     nextButton.style.width = "150px";
     nextButton.addEventListener("click", () => {
-        window.location.href = "gameModule.html"; 
+        window.location.href = "game.html"; 
     });
 
     answerButtons.appendChild(homeButton);
@@ -201,7 +232,7 @@ function showScore() {
 
     questionAtPresent.style.display = "none";
     // heading.style.display = "none"
-    startTimer.style.display = "none";
+    time.style.display = "none";
 }
 
 
@@ -243,4 +274,6 @@ var timer = 10;
 
 
 showQuestion();
+
+
 

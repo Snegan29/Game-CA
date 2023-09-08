@@ -5,9 +5,17 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body{
-    /* background: #007bff; */
-    
+body {
+    background: #fecd7e;
+}
+
+#quizlogo {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+
 }
 
 .popup {
@@ -33,7 +41,7 @@ body{
 #popup-button {
     font-size: 25px;
     font-weight: 500;
-    color: white;
+    color:white;
     padding: 15px 30px;
     border: none;
     outline: none;
