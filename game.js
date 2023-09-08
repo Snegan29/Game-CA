@@ -126,16 +126,21 @@ const time = document.getElementById("timer");
 
 let currentIndex = 0;
 let score = 0;
-
+let timer = 20
+let intervalid
 
 function startQuiz(){
     currentIndex = 0;
     score = 0;
-    nextButton.innerHTML = "Next";
+    nextButton.innerHTML = "Next>>";
     startTimer();
     showQuestion();
 }
 
+nextButton.addEventListener("click", () => {
+    clearInterval(intervalid)
+
+})
 
 // Function to show the questions
 
@@ -193,6 +198,7 @@ function selectAnswer(e){
         button.disabled = true;
     })
     nextButton.style.display = "block";
+    
 }
 
 // This function is to show the score or gameover page.
@@ -224,7 +230,7 @@ function showScore() {
     nextButton.style.display="block"
     nextButton.style.width = "150px";
     nextButton.addEventListener("click", () => {
-        window.location.href = "game.html"; 
+        location.href = "game.html"; 
     });
 
     answerButtons.appendChild(homeButton);
@@ -261,12 +267,14 @@ nextButton.addEventListener("click", ()=> {
 // This is for time function 
 
 function startTimer(){
-var timer = 10;
-    var intervalId = setInterval(function() {
+timer = 20;
+     intervalid = setInterval(function() {
     timer--;
     document.getElementById("timer").innerHTML = `Time:${timer}`;
     if (timer === 0) {
-        clearInterval(intervalId);
+        clearInterval(intervalid);
+        nextButton.style.display = "block";
+
         document.getElementById("timer").innerHTML = "Time's up!";
     }
     }, 1000);
