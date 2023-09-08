@@ -11,6 +11,7 @@
 <body>
     <img id="quizlogo" src="./assets/riddle logo.jpg " alt="">
     <button id="popup-button">Play</button>
+
     <div id="popup-container" class="popup">
         <div class="popup-content">
             <span class="close" id="close-popup">&times;</span>
@@ -25,18 +26,16 @@
                 <p><button id="continue-btn" onclick="showpopup()">Continue</button></p>
 
            </div>
-            
-    
-    
                 <form id="myForm" >
                     <h3>Fill up and start</h3>
                     <label for="inputData"></label>
-                    <input type="text" id="inputData" required placeholder="Name"><br><br>
+                    <input type="text" id="inputData"  class="name" placeholder="Name" required><br><br>
                     <label for="inputData" ></label>
-                    <input type="name" id="inputData" required placeholder="NickName"><br><br>
+                    <input type="name" id="inputData"  class="nickname" placeholder="NickName" required><br><br>
                     <button id="submit" type="submit">START</button>
                 </form> 
-                
+            </div>
+        </div>
     </div>
     <script src="Frontpage.js"></script>
 </body>

@@ -22,82 +22,82 @@ const questions = [
     {
         question: " What has keys but can't open locks?",
         answers :[
-            {text: "Lion", correct: false},
-            {text: "Peacock", correct: false},
-            {text: "", correct: true},
-            {text: "Elephant", correct: false},
+            {text: "A computer keyboard", correct: false},
+            {text: "A treasure chest", correct: false},
+            {text: "A piano", correct: true},
+            {text: "A detective", correct: false},
         ]
     },
     {
-        question: "What is the national flower of Japan?",
+        question: " I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
         answers :[
-            {text: "Lotus", correct: false },
-            {text: "Cherry Blossom", correct: true},
-            {text: "Orchid", correct: false},
-            {text: "Rose", correct: false},
+            {text: "An echo", correct: false },
+            {text: "A tornado", correct: true},
+            {text: "A radio", correct: false},
+            {text: "A ghost", correct: false},
         ]
     },
     {
-        question: "What is the name of the longest river?",
+        question: "I'm tall when I'm young and short when I'm old. What am I?",
         answers :[
-            {text: "Amazon", correct: false},
-            {text: "Missisipi", correct: false},
-            {text: "Nile", correct: true},
-            {text: "Yangtze ", correct: false},
+            {text: "A pencil", correct: false},
+            {text: "A giraffe", correct: false},
+            {text: "A tree", correct: false},
+            {text: "A candle", correct: true},
         ]
     },
     {
-        question: "What is the name of the smallest country in the world?",
+        question: "I'm always hungry, I must always be fed. The finger I touch will soon turn red. What am I?",
         answers :[
-            {text: "Tuvalu", correct: false},
-            {text: "India", correct: false},
-            {text: "United States", correct: false},
-            {text: "Vatican City", correct: true},
+            {text: "A baby", correct: false},
+            {text: "A dragon", correct: false},
+            {text: "A flame", correct: true},
+            {text: "A clock", correct: false},
         ]
     },
     {
-        question: "What is the name of the largest ocean trench in the world?",
+        question: "What belongs to you but other people use it more than you do?",
         answers :[
-            {text: "Challenger Deep", correct: false},
-            {text: "Java Trench", correct: false},
-            {text: "Mariana Trench", correct: true},
-            {text: "Puerto Rico Trench", correct: false},
+            {text: "Your name", correct: true},
+            {text: "Your phone", correct: false},
+            {text: "Your car", correct: false},
+            {text: "Your money", correct: false},
         ]
     },
     {
-        question: "Which planet has most moons?",
+        question: "What is always in front of you but can't be seen?",
         answers :[
-            {text: "Jupiter", correct: true},
-            {text: "Saturn", correct: false},
-            {text: "Uranus", correct: false},
-            {text: "Neptune", correct: false},
+            {text: "Your past", correct: false},
+            {text: "A mirror", correct: false},
+            {text: "Anime world", correct: false},
+            {text: "Future", correct: true},
         ]
     },
     {
-        question: "Which planet is the Gas Giant?",
+        question: "I can fly without wings. I can cry without eyes. Whenever I go, darkness flies. What am I?",
         answers :[
-            {text: "Neptune", correct: false},
-            {text: "Jupiter", correct: false},
-            {text: "Uranus", correct: true},
-            {text: "Saturn", correct: false},
+            {text: "A cloud", correct: false},
+            {text: "A bird", correct: false},
+            {text: "The wind", correct: true},
+            {text: "An airplane", correct: false},
         ]
     },
     {
-        question: "Which is the largest volcano?",
+        question: " I have keys but open no locks. I have space but no room. You can enter, but you can't go inside. What am I?",
         answers :[
-            {text: "Rheasilvia", correct: false},
-            {text: "Mount Olympus", correct: true},
-            {text: "Himalayas", correct: false},
-            {text: "Mauna Kea", correct: false},
+            {text: "A map", correct: false},
+            {text: " A keyboard", correct: true},
+            {text: "A car", correct: false},
+            {text: " A smartphone", correct: false},
         ]
     },
     {
-        question: "Which country has the most Nobel Prize winners?",
+        question: "What starts with the letter 't', ends with the letter 't' ,and is full of 't'?",
         answers :[
-            {text: "United Kingdom", correct: false},
-            {text: "Germany", correct: false},
-            {text: "United States", correct: true},
-            {text: "France", correct: false},
+            {text: "A tent", correct: false},
+            {text: "A target", correct: false},
+            {text: "A tomato", correct: false},
+            {text: "A teapot", correct: true},
         ]
     }
 ]
@@ -106,6 +106,16 @@ const questions = [
 // generalKnowledge.addEventListener("click", () => {
 //     console.log(1)
 // })
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+shuffleArray(questions);
+
 
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
@@ -130,7 +140,7 @@ function startQuiz(){
 // Function to show the questions
 
 function showQuestion(){
-   
+   shuffleArray(questions)
     resetState();
     startTimer();
     let currentQuestion = questions[currentIndex];
@@ -145,6 +155,7 @@ function showQuestion(){
         answerButtons.appendChild(button);
         if(answer.correct){
             button.dataset.correct = answer.correct;
+            
         }
         button.addEventListener("click",selectAnswer)
     })

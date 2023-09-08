@@ -63,7 +63,7 @@
 
   .sometips {
     padding: 10px;
-    text-align: start;
+    /* text-align: start; */
   }
   
   #main-div{
@@ -128,6 +128,7 @@
   #next {
       background-color: #007bff;
       color: aliceblue;
+      
   }
   #next:hover {
       background-color: white;
@@ -143,6 +144,7 @@
   .correct {
       background: lightgreen;
       color: black;
+      cursor: no-drop;
   }
   
   .incorrect {
@@ -150,3 +152,4 @@
       /* color: black; */
   }
 
+  @media 

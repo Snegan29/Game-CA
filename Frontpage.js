@@ -1,5 +1,9 @@
 
 
+
+
+
+
 const popupButton = document.getElementById("popup-button");
 const popupContainer = document.getElementById("popup-container");
 const closePopup = document.getElementById("close-popup");
@@ -18,11 +22,15 @@ const showFormButton = document.getElementById("continue-btn");
 const myForm = document.getElementById("myForm");
 
 
- let ticking = new Audio("./assets/riddles.bgm.mp3")
-ticking.play()
-// ticking.loop = true
+//  let bgmusic = new Audio("./assets/riddles.bgm.mp3")
+// bgmusic.play()
+// // bgmusic.loop = true
 
 
+window.localStorage.setItem("name",document.querySelector(".name").value)
+window.localStorage.setItem("nickname",document.querySelector(".nickname").value)
+
+console.log(localStorage.getItem)
 
 // const redirected = dociment.getElementById("submit")  
 
