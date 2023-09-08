@@ -1,0 +1,42 @@
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Start Page</title>
+    <link rel="stylesheet" href="Frontpage.css">
+</head>
+<body>
+    <button id="popup-button">Play</button>
+    <div id="popup-container" class="popup">
+        <div class="popup-content">
+            <span class="close" id="close-popup">&times;</span>
+            <h2>INSTRUCTIONS</h2>
+            <!-- <p><span> /** Please click submit and then start **/</span> </p> -->
+           <div class="instructionList">
+                <p>1. You only have <span>10 seconds</span> per question.</p>
+                <p>2. Once you select the question, you can't reselect.</p>
+                <p>3. You can't select any option once the timer goes off.</p>
+                <p>4. You can't exit from the quiz once you start.</p>
+                <p>5. Scores will be added for each correct answer.</p>
+                <p><button id="continue-btn" onclick="showpopup()">Continue</button></p>
+
+           </div>
+            
+    
+    
+                <form id="myForm" >
+                    <h3>Fill up and start</h3>
+                    <label for="inputData"></label>
+                    <input type="text" id="inputData" required placeholder="Name"><br><br>
+                    <label for="inputData" ></label>
+                    <input type="name" id="inputData" required placeholder="NickName"><br><br>
+                    <button id="submit" type="submit">START</button>
+                </form> 
+                
+    </div>
+    <script src="Frontpage.js"></script>
+</body>
+</html>
