@@ -63,18 +63,18 @@ const questions = [
     {
         question: "What is always in front of you but can't be seen?",
         answers :[
-            {text: "Your past", correct: false},
+            {text: "Your Past", correct: false},
             {text: "A mirror", correct: false},
             {text: "Anime world", correct: false},
-            {text: "Future", correct: true},
+            {text: "Your Future", correct: true},
         ]
     },
     {
         question: "I can fly without wings. I can cry without eyes. Whenever I go, darkness flies. What am I?",
         answers :[
-            {text: "A cloud", correct: false},
+            {text: "A cloud", correct: true},
             {text: "A bird", correct: false},
-            {text: "The wind", correct: true},
+            {text: "The wind", correct: false},
             {text: "An airplane", correct: false},
         ]
     },
@@ -95,32 +95,59 @@ const questions = [
             {text: "A tomato", correct: false},
             {text: "A teapot", correct: true},
         ]
+    },
+    {
+        question: "What is always coming but never arrives",
+        answers :[
+            {text: "Tommorrow", correct: true},
+            {text: "Future", correct: false},
+            {text: "Yesterday", correct: false},
+            {text: "Past", correct: false},
+        ]
+    },
+    {
+        question: "What can be broken by saying it?",
+        answers :[
+            {text: "break", correct: false},
+            {text: "Silence", correct: true},
+            {text: "Noise", correct: false},
+            {text: "A flower vase", correct: false},
+        ]
+    },
+    {
+        question: "What has a face but no eyes, nose, or mouth?",
+        answers :[
+            {text: "A shadow", correct: false},
+            {text: "A slender man", correct: true},
+            {text: "A clock", correct: false},
+            {text: "A wall", correct: false},
+        ]
     }
 ]
 
 
 
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
+// function shuffleArray(array) {
+//     for (let i = array.length - 1; i > 0; i--) {
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [array[i], array[j]] = [array[j], array[i]];
+//     }
+// }
 
-shuffleArray(questions);
+// shuffleArray(questions);
 
 
 
 function tickickingTime(){
-    let ticking = new Audio("assets/ticking.mp3")
+    let ticking = new Audio("./assets/timer-with-chime.mp3")
     ticking.play()
-    ticking.loop = true
+    // ticking.loop = true
 }
 
 function resetMusic(){
-    // ticking.pause()
+    ticking.pause()
     ticking.currentTime = 0
-    tickickingTime()
+    // tickickingTime()
     // startTimer()
 }
 
@@ -135,7 +162,7 @@ const quizbox = document.querySelector(".quiz")
 
 let currentIndex = 0;
 let score = 0;
-let timer = 16
+let timer = 11
 let intervalid
 
 
@@ -143,11 +170,8 @@ let intervalid
 //     // tickickingTime()
 //     // Hide the popup
 //     document.querySelector(".popup").classList.add("hide");
-  
 //     // Show the main part
 //     document.getElementById("main-div").classList.remove("hide");
-   
-    
 //   }
 
 function startQuiz(){
@@ -160,14 +184,14 @@ function startQuiz(){
 
 nextButton.addEventListener("click", () => {
     clearInterval(intervalid)
-    
+    resetMusic()
 })
 
 // Function to show the questions
 
 function showQuestion(){
 
-   shuffleArray(questions)
+//    shuffleArray(questions)
    tickickingTime()
     resetState();
     startTimer();
@@ -272,7 +296,7 @@ function handleNextButton(){
     currentIndex++;
     if(currentIndex < questions.length){
         showQuestion();
-        resetMusic()
+        // resetMusic()
         
     }else {
         showScore();
@@ -284,7 +308,7 @@ function handleNextButton(){
 nextButton.addEventListener("click", ()=> {
     if(currentIndex < questions.length){
         handleNextButton();
-        resetMusic()
+        // resetMusic()
     }else{
         startQuiz();
     }
@@ -293,7 +317,7 @@ nextButton.addEventListener("click", ()=> {
 // This is for time function 
 
 function startTimer(){
-timer = 16;
+timer = 11;
      intervalid = setInterval(function() {
     timer--;
     document.getElementById("timer").innerHTML = `Time:${timer}`;

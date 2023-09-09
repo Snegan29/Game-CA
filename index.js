@@ -19,9 +19,9 @@ closePopup.addEventListener("click", () => {
 
 
 // background music
-// let bgm = new Audio("assets/riddles.bgm.mp3")
-// bgm.play()
-// bgm.loop = true
+let bgm = new Audio("./assets/riddles.bgm.mp3")
+bgm.play()
+bgm.loop = true
 
 
 //a drop down after i click the continue button
