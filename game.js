@@ -251,13 +251,13 @@ function showScore() {
     // questionElement.innerHTML = `Congrats. You have scored ${score} out of ${questions.length}.`;
 
     if(score <5){
-        questionElement.innerHTML = `${name1} with the nick name of ${nickname}. You have scored ${score} out of ${questions.length}. You can "Try Hard".`;
+        questionElement.innerHTML = `"${name1}" with the nick name of "${nickname}". You have scored ${score} out of ${questions.length}. You can "Try Hard".`;
     }else if(score>=5){
-        questionElement.innerHTML = ` ${name1} with the nick name of ${nickname}. You have scored ${score} out of ${questions.length}.You are better but "You can be the best".`;
+        questionElement.innerHTML = ` "${name1}" with the nick name of "${nickname}". You have scored ${score} out of ${questions.length}.You are better but "You can be the best".`;
     }else if(score>=10){
-        questionElement.innerHTML = `${name1} with the nick name of ${nickname}. You have scored ${score} out of ${questions.length}.GOD, You have done it.`;
+        questionElement.innerHTML = `"${name1}" with the nick name of "${nickname}". You have scored ${score} out of ${questions.length}.GOD, You have done it.`;
     }else if(score == 15){
-        questionElement.innerHTML = `${name1} with the nick name of ${nickname}. You have scored ${score} out of ${questions.length}.You truly are a Riddle Master.`
+        questionElement.innerHTML = `"${name1}" with the nick name of "${nickname}". You have scored ${score} out of ${questions.length}.You truly are a Riddle Master.`
     }
      
 
