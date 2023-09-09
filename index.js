@@ -36,7 +36,8 @@ function showpopup(){
 document.getElementById('myForm').addEventListener('submit', function (e) {
 
     e.preventDefault(); 
-
+    localStorage.setItem("name",document.querySelector(".name").value)
+    localStorage.setItem("nickname",document.querySelector(".nickname").value)
     const inputData = document.getElementById('inputData').value;
     const url = 'destination.html?userInput=' + encodeURIComponent(inputData);
     window.location.href = "game.html";
@@ -44,5 +45,3 @@ document.getElementById('myForm').addEventListener('submit', function (e) {
 
 
 // values in gets stored in local storage.
-window.localStorage.setItem("name",document.querySelector(".name").value)
-window.localStorage.setItem("nickname",document.querySelector(".nickname").value)

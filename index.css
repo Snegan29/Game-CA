@@ -7,6 +7,7 @@
 
 body {
     background: #00bbff;
+    overflow-y: scroll;
 }
 
 #quizlogo {

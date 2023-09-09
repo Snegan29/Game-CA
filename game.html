@@ -6,25 +6,7 @@
 <link rel="icon" href="./assets/quizicon.jpg">
 </head>
 <body>
-
-<!-- <div class="popup">
-    <div class="popup-content">
-        <div class="text">
-            <div>Hello, Participant</div>
-            <div class="sometips">
-                <p>1.You have to solve every riddle by using your brains</p>
-                <p>2.Make sure you follow the instructions</p>
-                <p>3.Read the questions carefully</p>
-                <p>4.Now, Put on your thinking caps.</p>
-            </div>
-        </div>
-        <button onclick="getIntoMainPart()" id="popbtn">Let's get started.</button> -->
-        <!-- <button onclick ="getIntoMainPart()" id="popbtn" >Riddles</button> -->
-    </div>
-</div>
-
-
-    <div id="main-div" class="hide">
+    <div id="main-div">
         <div id="flex">
             <h1 id="GK">Riddles</h1>
             <h2 id="timer">Time:00</h2>
@@ -38,12 +20,11 @@
                 <button><div class="btn">option 1</div></button>                
             </div>
             <div class ="next-button">
-                <p id="questionAtPresent"><span>5 out of 10</span></p>
+                <p ><span id="questionAtPresent"> 5 out of 10 </span> | <span  id="scoreTillNow">Score:</span></p>
                 <button id="next" >Next >></button>
             </div>
         </div>
     </div>
-</div>
-<script src="game.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>

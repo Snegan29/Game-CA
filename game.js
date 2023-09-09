@@ -122,80 +122,64 @@ const questions = [
             {text: "A clock", correct: false},
             {text: "A wall", correct: false},
         ]
+    },
+    {
+        question: "What gets wetter the more it dries",
+        answers :[
+            {text: "sweat", correct: false},
+            {text: "clouds", correct: false},
+            {text: "wind", correct: false},
+            {text: "A towel", correct: true},
+        ]
+    },
+    {
+        question: "What has four legs in the morning, two legs in the afternoon, and three legs in the evening?",
+        answers :[
+            {text: "An accidental accident guy", correct: false},
+            {text: "A human", correct: true},
+            {text: "An amphibian", correct: false},
+            {text: "An Urban Legend", correct: false},
+        ]
     }
 ]
 
-
-
-// function shuffleArray(array) {
-//     for (let i = array.length - 1; i > 0; i--) {
-//         const j = Math.floor(Math.random() * (i + 1));
-//         [array[i], array[j]] = [array[j], array[i]];
-//     }
-// }
-
-// shuffleArray(questions);
-
-
-
-function tickickingTime(){
-    let ticking = new Audio("./assets/timer-with-chime.mp3")
-    ticking.play()
-    // ticking.loop = true
-}
-
-function resetMusic(){
-    ticking.pause()
-    ticking.currentTime = 0
-    // tickickingTime()
-    // startTimer()
-}
 
 
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next")
 const questionAtPresent = document.getElementById("questionAtPresent")
+const scoreTillNow = document.getElementById("scoreTillNow")
 const heading = document.getElementById("grid-item")
 const time = document.getElementById("timer");
 const quizbox = document.querySelector(".quiz")
 
 let currentIndex = 0;
 let score = 0;
-let timer = 11
-let intervalid
+let timer = 11;
+let timeinterval
 
 
-// function getIntoMainPart() {
-//     // tickickingTime()
-//     // Hide the popup
-//     document.querySelector(".popup").classList.add("hide");
-//     // Show the main part
-//     document.getElementById("main-div").classList.remove("hide");
-//   }
 
 function startQuiz(){
     currentIndex = 0;
     score = 0;
-    nextButton.innerHTML = "Next>>";
+    nextButton.innerHTML = "Next";
     // startTimer();
     showQuestion();
 }
 
 nextButton.addEventListener("click", () => {
-    clearInterval(intervalid)
-    resetMusic()
+    // handleNextButton()    
+    // resetMusic()
 })
 
 // Function to show the questions
 
 function showQuestion(){
 
-//    shuffleArray(questions)
-   tickickingTime()
     resetState();
     startTimer();
-   
 
     let currentQuestion = questions[currentIndex];
     let questionNo = currentIndex + 1;
@@ -216,6 +200,8 @@ function showQuestion(){
 
     //at which question we are at
     questionAtPresent.innerHTML = `${questionNo} out of ${questions.length}`
+    scoreTillNow.innerHTML = `Score: ${score}`
+
 }
 
 // this function is to hide the next button and removing the previous buttons.
@@ -225,7 +211,6 @@ function resetState(){
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild)
     }
-    // clearInterval(intervalId)
 }
 
 // this function is to find if the clicked answer is correct or incorrect.
@@ -250,6 +235,14 @@ function selectAnswer(e){
     
 }
 
+// local storage things
+
+const name1 = localStorage.getItem("name")
+const nickname = localStorage.getItem("nickname")
+
+console.log(name1)
+console.log(nickname)
+
 // This function is to show the score or gameover page.
 
 function showScore() {
@@ -258,12 +251,15 @@ function showScore() {
     // questionElement.innerHTML = `Congrats. You have scored ${score} out of ${questions.length}.`;
 
     if(score <5){
-        questionElement.innerHTML = `You can "Try hard". You have scored ${score} out of ${questions.length}.`;
-    }else if(score>=5 && score<8){
-        questionElement.innerHTML = `You are better but "You can be the best". You have scored ${score} out of ${questions.length}.`;
-    }else if(score>=8){
-        questionElement.innerHTML = `GOD, You have done it. You have scored ${score} out of ${questions.length}.`;
+        questionElement.innerHTML = `${name1} with the nick name of ${nickname}. You have scored ${score} out of ${questions.length}. You can "Try Hard".`;
+    }else if(score>=5){
+        questionElement.innerHTML = ` ${name1} with the nick name of ${nickname}. You have scored ${score} out of ${questions.length}.You are better but "You can be the best".`;
+    }else if(score>=10){
+        questionElement.innerHTML = `${name1} with the nick name of ${nickname}. You have scored ${score} out of ${questions.length}.GOD, You have done it.`;
+    }else if(score == 15){
+        questionElement.innerHTML = `${name1} with the nick name of ${nickname}. You have scored ${score} out of ${questions.length}.You truly are a Riddle Master.`
     }
+     
 
     // Create a "Go to Home" button
     const homeButton = document.createElement("button");
@@ -271,7 +267,7 @@ function showScore() {
     homeButton.style.width="150px"
     homeButton.classList.add("btn");
     homeButton.addEventListener("click", () => {
-        window.location.href = "index.html"; 
+       location.href = "index.html"; 
     });
 
     // Create a "Start Again" button
@@ -286,7 +282,9 @@ function showScore() {
     answerButtons.appendChild(nextButton);
 
     questionAtPresent.style.display = "none";
+    // heading.style.display="none"
     time.style.display = "none";
+    scoreTillNow.style.display = "none";
 }
 
 
@@ -308,7 +306,8 @@ function handleNextButton(){
 nextButton.addEventListener("click", ()=> {
     if(currentIndex < questions.length){
         handleNextButton();
-        // resetMusic()
+        clearInterval(timeinterval)
+        // resetState()
     }else{
         startQuiz();
     }
@@ -318,15 +317,15 @@ nextButton.addEventListener("click", ()=> {
 
 function startTimer(){
 timer = 11;
-     intervalid = setInterval(function() {
+    timeinterval = setInterval(function() {
     timer--;
     document.getElementById("timer").innerHTML = `Time:${timer}`;
     if (timer === 0) {
-        clearInterval(intervalid);
+        clearInterval(timeinterval);
         handleNextButton()
         document.getElementById("timer").innerHTML = "Time's up!";
     }
-    }, 1000);
+    },1000);
 }
 
 

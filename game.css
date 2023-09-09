@@ -53,6 +53,7 @@
 
   body{
       background-color: #007bff;
+     
   }
   
   .text {
@@ -69,12 +70,15 @@
   }
   
   #main-div{
-      background: white;
-      width: 40%;
-      /* max-width: 600px; */
-      margin: 100px auto ;
-      border-radius: 10px;
-      padding: 30px;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 5px;
+      width: 50%;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       
   }
   
@@ -84,6 +88,7 @@
       font-weight: 600px;
       border-bottom: 1px solid #333;
       padding-bottom: 20px;
+      
   }
   
   
@@ -113,9 +118,13 @@
       cursor: pointer;
   }
   
-  button:hover {
+  button:hover([disabled]) {
       background-color: #0C6BFA;
       color: white;
+  }
+
+  button:disabled {
+    cursor: no-drop;
   }
   
   .next-button {
@@ -156,17 +165,15 @@
 
 
 /* Example media query for screens with a maximum width of 600px */
-@media (max-width: 600px) {
-    #main-div {
-        width: 90%; /* Adjust as needed */
-        max-width: none; /* Remove the max-width constraint */
-    }
+/* CSS for larger screens */
 
-    button {
-        margin-top: 10px; /* Reduce button margin for smaller screens */
-        font-size: 14px; /* Adjust font size */
-    }
+/* Your regular CSS styles go here */
 
-    /* Other adjustments for smaller screens */
+/* Media query for screens with a maximum width of 600px */
+@media screen and (max-width: 600px) {
+  body{
+    background-color: black;
+  }
 }
-
+  
+  
