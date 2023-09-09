@@ -1,12 +1,8 @@
 
 // document
-function getIntoMainPart() {
-    // Hide the popup
-    document.querySelector(".popup").classList.add("hide");
-  
-    // Show the main part
-    document.getElementById("main-div").classList.remove("hide");
-  }
+
+// tickickingTime()
+
 
 
 const questions = [
@@ -102,10 +98,7 @@ const questions = [
     }
 ]
 
-// const generalKnowledge = document.getElementById("GK")
-// generalKnowledge.addEventListener("click", () => {
-//     console.log(1)
-// })
+
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -117,37 +110,69 @@ function shuffleArray(array) {
 shuffleArray(questions);
 
 
+
+function tickickingTime(){
+    let ticking = new Audio("assets/ticking.mp3")
+    ticking.play()
+    ticking.loop = true
+}
+
+function resetMusic(){
+    // ticking.pause()
+    ticking.currentTime = 0
+    tickickingTime()
+    // startTimer()
+}
+
+
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next")
 const questionAtPresent = document.getElementById("questionAtPresent")
 const heading = document.getElementById("grid-item")
 const time = document.getElementById("timer");
+const quizbox = document.querySelector(".quiz")
 
 let currentIndex = 0;
 let score = 0;
-let timer = 20
+let timer = 16
 let intervalid
+
+
+// function getIntoMainPart() {
+//     // tickickingTime()
+//     // Hide the popup
+//     document.querySelector(".popup").classList.add("hide");
+  
+//     // Show the main part
+//     document.getElementById("main-div").classList.remove("hide");
+   
+    
+//   }
 
 function startQuiz(){
     currentIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next>>";
-    startTimer();
+    // startTimer();
     showQuestion();
 }
 
 nextButton.addEventListener("click", () => {
     clearInterval(intervalid)
-
+    
 })
 
 // Function to show the questions
 
 function showQuestion(){
+
    shuffleArray(questions)
+   tickickingTime()
     resetState();
-    startTimer()
+    startTimer();
+   
+
     let currentQuestion = questions[currentIndex];
     let questionNo = currentIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
@@ -169,7 +194,7 @@ function showQuestion(){
     questionAtPresent.innerHTML = `${questionNo} out of ${questions.length}`
 }
 
-// this function is to hid the next button and removing the previous buttons.
+// this function is to hide the next button and removing the previous buttons.
 
 function resetState(){
     nextButton.style.display = "none";
@@ -237,7 +262,6 @@ function showScore() {
     answerButtons.appendChild(nextButton);
 
     questionAtPresent.style.display = "none";
-    // heading.style.display = "none"
     time.style.display = "none";
 }
 
@@ -248,17 +272,19 @@ function handleNextButton(){
     currentIndex++;
     if(currentIndex < questions.length){
         showQuestion();
+        resetMusic()
+        
     }else {
         showScore();
     }
-    // resetState();
 }
 
-// an event to call other functions, to find if the question is the last one or not. 
+// an event to call other functions, to find if the question is the  last one or not. 
 
 nextButton.addEventListener("click", ()=> {
     if(currentIndex < questions.length){
         handleNextButton();
+        resetMusic()
     }else{
         startQuiz();
     }
@@ -267,14 +293,13 @@ nextButton.addEventListener("click", ()=> {
 // This is for time function 
 
 function startTimer(){
-timer = 20;
+timer = 16;
      intervalid = setInterval(function() {
     timer--;
     document.getElementById("timer").innerHTML = `Time:${timer}`;
     if (timer === 0) {
         clearInterval(intervalid);
-        nextButton.style.display = "block";
-
+        handleNextButton()
         document.getElementById("timer").innerHTML = "Time's up!";
     }
     }, 1000);

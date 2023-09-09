@@ -6,7 +6,7 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
 }
-
+/* 
 .popup {
     position: fixed;
     top: 0;
@@ -48,7 +48,7 @@
   
   .hide {
       display: none;
-  }
+  } */
 
 
   body{
@@ -59,6 +59,11 @@
     border: 1px solid black;
   }
 
+  #timer {
+    font-size: 20px;
+    font-weight: 100;
+  }
+
   .sometips {
     padding: 10px;
   }
@@ -66,10 +71,11 @@
   #main-div{
       background: white;
       width: 80%;
-      max-width: 600px;
-      margin: 100px auto 0;
+      /* max-width: 600px; */
+      margin: 100px auto ;
       border-radius: 10px;
       padding: 30px;
+      
   }
   
   #main-div h1 {
@@ -115,6 +121,7 @@
   .next-button {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       justify-content: space-between  ;
       align-items: center;
       border-radius: 5px;
@@ -147,4 +154,19 @@
       background: lightsalmon;
   }
 
+
+/* Example media query for screens with a maximum width of 600px */
+@media (max-width: 600px) {
+    #main-div {
+        width: 90%; /* Adjust as needed */
+        max-width: none; /* Remove the max-width constraint */
+    }
+
+    button {
+        margin-top: 10px; /* Reduce button margin for smaller screens */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    /* Other adjustments for smaller screens */
+}
 

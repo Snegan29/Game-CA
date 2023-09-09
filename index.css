@@ -79,8 +79,8 @@ span {
 .close {
     position: absolute;
     top: 10px;
-    right: 10px;
-    font-size: 20px;
+    right: 15px;
+    font-size: 25px;
     cursor: pointer;
 }
 
@@ -100,28 +100,26 @@ p {
 }
 
 #continue-btn {
-    margin-top: 10px;
-    /* margin-left: 75% ; */
-    padding: 9px;
-    background-color:#007bff;
+    color: #007bff;
+    padding: 5px;
     border: none;
-    color: white;
     border-radius: 5px;
     cursor: pointer;
     /* display: none; */
 }
 
 #continue-btn:hover {
-    border: 0.1px solid #007bff;
-    background: white;
     color: #007bff;
+    text-decoration:underline #007bff ;
 }
 
 #myForm {
-    margin: 20px;
-    padding: 15px;
+    /* margin: 10px; */
+    padding: 20px;
     /* border: 5px solid #bbb ; */
-    border-radius: 20px;
+    /* border-radius: 20px; */
+    border-bottom: 3px solid black;
+    padding-bottom: 10px;
     display: none;
 }
 
@@ -160,4 +158,18 @@ button {
     text-align: center;
 }
 
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px auto;
+}
 
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}

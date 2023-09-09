@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz start page</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="./assets/quizicon.jpg">
 </head>
 <body>
     <img id="quizlogo" src="./assets/Quiz-logo.jpg " alt="">
@@ -23,17 +24,33 @@
                 <p>3. You can't select any option once the timer goes off.</p>
                 <p>4. You can't exit from the quiz once you start.</p>
                 <p>5. Scores will be added for each correct answer.</p>
-                <p><button id="continue-btn" onclick="showpopup()">Continue</button></p>
+                <p><div id="continue-btn" onclick="showpopup()">Continue</div ></p>
 
            </div>
+           
                 <form id="myForm" >
-                    <h3>Fill up & start</h3>
+                    <h1>Fill up & start</h1>
                     <label for="inputData"></label>
                     <input type="text" id="inputData"  class="name" placeholder="Name" required><br><br>
                     <label for="inputData" ></label>
                     <input type="name" id="inputData"  class="nickname" placeholder="NickName" required><br><br>
                     <button id="submit" type="submit">START</button>
                 </form> 
+                
+                <span class="close" id="close-popup">&times;</span>
+            </div>
+            <div id="leaderboard" style="display: none;">
+                <h3>Leaderboard</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Nickname</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderList"></tbody>
+                </table>
             </div>
         </div>
     </div>
